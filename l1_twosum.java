@@ -13,3 +13,20 @@ https://leetcode-cn.com/
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
 **/
+
+
+class Solution {
+  public int[] twoSum(int[] nums, int target) {
+    int[] indexs = new int[2];
+    HashMap<Integer, Integer> hash = new HashMap<Integer, Integer>();
+    
+    for(int i = 0; i < nums.length; i++) {
+      if(hash.get(nums[i])) {
+        indexs[0] = i; 
+        indexs[1] = hash.get(nums[i]);
+        return indexs;
+      } 
+      hash.put(target - nums[i], i);
+    }
+  }
+}
